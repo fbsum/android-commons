@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+    <declare-styleable name="MultiImageView">
+        <attr name="miv_images" format="reference" />
+        <attr name="miv_position" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="SuperItemView">
+        <attr name="siv_layout" format="reference" />
+        <attr name="siv_left_icon" format="reference" />
+        <attr name="siv_left_text" format="string" />
+        <attr name="siv_right_icon" format="reference" />
+        <attr name="siv_right_text" format="string" />
+        <attr name="siv_checked" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioLayout">
+        <attr name="rfl_ratio" format="float" />
+    </declare-styleable>
+</resources>

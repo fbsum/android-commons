@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DividerView -->
+    <attr name="divider_foreground_margin_left" format="dimension" />
+    <attr name="divider_foreground_margin_right" format="dimension" />
+    <attr name="divider_foreground_color" format="color" />
+    <declare-styleable name="DividerView">
+        <attr name="divider_foreground_margin_left" />
+        <attr name="divider_foreground_margin_right" />
+        <attr name="divider_foreground_color" />
+    </declare-styleable>
+</resources>
