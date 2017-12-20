@@ -118,6 +118,7 @@ public class SuperItemView extends FrameLayout
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        checked = b;
         if (onCheckedChangeListener != null) {
             onCheckedChangeListener.onCheckedChange(this, b);
         }
