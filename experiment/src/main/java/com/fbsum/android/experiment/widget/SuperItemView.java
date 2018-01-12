@@ -2,6 +2,7 @@ package com.fbsum.android.experiment.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.DrawableRes;
@@ -24,11 +25,11 @@ import com.fbsum.android.experiment.R;
 public class SuperItemView extends FrameLayout
         implements CompoundButton.OnCheckedChangeListener {
 
-    public int imageRes;
-    public String text;
-    public int secondImageRes;
-    public String secondText;
-    public boolean checked;
+    private int imageRes;
+    private String text;
+    private int secondImageRes;
+    private String secondText;
+    private boolean checked;
 
     private ImageView imageView;
     private TextView textView;
@@ -70,14 +71,14 @@ public class SuperItemView extends FrameLayout
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        imageView = (ImageView) findViewById(R.id.super_item_left_imageview);
-        textView = (TextView) findViewById(R.id.super_item_left_textview);
-        secondImageView = (ImageView) findViewById(R.id.super_item_right_imageview);
-        secondTextView = (TextView) findViewById(R.id.super_item_right_textview);
-        switchCompat = (SwitchCompat) findViewById(R.id.super_item_switch);
+        imageView = (ImageView) findViewById(R.id.siv_image_view);
+        textView = (TextView) findViewById(R.id.siv_text_view);
+        secondImageView = (ImageView) findViewById(R.id.siv_second_image_view);
+        secondTextView = (TextView) findViewById(R.id.siv_second_text_view);
+        switchCompat = (SwitchCompat) findViewById(R.id.siv_switch);
 
-        setImage(imageRes);
-        setSecondImage(secondImageRes);
+        setImageResource(imageRes);
+        setSecondImageResource(secondImageRes);
         setText(text);
         setSecondText(secondText);
         setChecked(checked);
@@ -109,29 +110,34 @@ public class SuperItemView extends FrameLayout
     public void onRestoreInstanceState(Parcelable state) {
         SavedState ss = (SavedState) state;
         super.onRestoreInstanceState(ss.getSuperState());
-        setImage(ss.imageRes);
+        setImageResource(ss.imageRes);
         setText(ss.text);
-        setSecondImage(ss.secondImageRes);
+        setSecondImageResource(ss.secondImageRes);
         setSecondText(ss.secondText);
         setChecked(ss.checked);
     }
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-        checked = b;
         if (onCheckedChangeListener != null) {
             onCheckedChangeListener.onCheckedChange(this, b);
         }
     }
 
-    public void setImage(@DrawableRes int imageRes) {
+    public void setDrawable(Drawable drawable) {
+        if (imageView != null) {
+            imageView.setImageDrawable(drawable);
+        }
+    }
+
+    public void setImageResource(@DrawableRes int imageRes) {
         if (imageView != null && imageRes != 0) {
             this.imageRes = imageRes;
             imageView.setImageResource(this.imageRes);
         }
     }
 
-    public void setSecondImage(@DrawableRes int imageRes) {
+    public void setSecondImageResource(@DrawableRes int imageRes) {
         if (secondImageView != null && imageRes != 0) {
             secondImageRes = imageRes;
             secondImageView.setImageResource(secondImageRes);
@@ -145,10 +151,22 @@ public class SuperItemView extends FrameLayout
         }
     }
 
+    public void setHint(String hint) {
+        if (textView != null && hint != null) {
+            textView.setHint(hint);
+        }
+    }
+
     public void setSecondText(String text) {
         if (secondTextView != null && text != null) {
             this.secondText = text;
             secondTextView.setText(this.secondText);
+        }
+    }
+
+    public void setSecondHint(String hint) {
+        if (secondTextView != null && hint != null) {
+            secondTextView.setHint(hint);
         }
     }
 
@@ -203,7 +221,10 @@ public class SuperItemView extends FrameLayout
     }
 
     public boolean isChecked() {
-        return checked;
+        if (switchCompat != null) {
+            return switchCompat.isChecked();
+        }
+        return false;
     }
 
     /**
