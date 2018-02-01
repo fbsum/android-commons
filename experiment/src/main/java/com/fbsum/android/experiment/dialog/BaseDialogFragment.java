@@ -21,8 +21,11 @@ public abstract class BaseDialogFragment extends DialogFragment {
 
     @Override
     public final View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Window window = getDialog().getWindow();
+        // 去掉 title
+        window.requestFeature(Window.FEATURE_NO_TITLE);
         // 设置透明背景
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        window.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
         // 添加 MATCH_PARENT 的父容器
         FrameLayout frameLayout = new FrameLayout(getContext());
