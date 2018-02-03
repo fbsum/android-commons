@@ -14,7 +14,6 @@ public final class ToastUtils {
     private static Toast toast;
 
     private ToastUtils() {
-        throw new UnsupportedOperationException();
     }
 
     @Nullable

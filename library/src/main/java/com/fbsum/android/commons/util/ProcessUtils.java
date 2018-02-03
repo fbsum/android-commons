@@ -16,7 +16,6 @@ import java.util.List;
 public final class ProcessUtils {
 
     private ProcessUtils() {
-        throw new UnsupportedOperationException();
     }
 
     /**

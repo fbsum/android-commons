@@ -12,7 +12,6 @@ import android.os.Vibrator;
 public final class VibrateUtils {
 
     private VibrateUtils() {
-        throw new UnsupportedOperationException();
     }
 
     /**

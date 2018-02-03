@@ -9,7 +9,6 @@ import android.support.annotation.DrawableRes;
 public final class BitmapUtils {
 
     private BitmapUtils() {
-        throw new UnsupportedOperationException();
     }
 
     /**

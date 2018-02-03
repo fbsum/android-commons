@@ -9,7 +9,6 @@ import android.util.TypedValue;
 public final class DensityUtils {
 
     private DensityUtils() {
-        throw new UnsupportedOperationException();
     }
 
     public static int dp2px(Context context, float dpVal) {

@@ -11,7 +11,6 @@ import android.view.View;
 public final class ViewUtils {
 
     private ViewUtils() {
-        throw new UnsupportedOperationException();
     }
 
     @CheckResult

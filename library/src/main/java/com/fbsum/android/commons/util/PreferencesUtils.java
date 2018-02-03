@@ -11,7 +11,6 @@ public final class PreferencesUtils {
     private static SharedPreferences sharedPreferences;
 
     private PreferencesUtils() {
-        throw new UnsupportedOperationException();
     }
 
     public static void init(Application application) {
